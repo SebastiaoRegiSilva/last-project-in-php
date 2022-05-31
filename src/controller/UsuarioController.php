@@ -29,10 +29,10 @@
         }
 
         /**
-        * Edita um usuário cadastrado com base em seu código de identificação.
+        * Busca um usuário cadastrado com base em seu código de identificação.
         * @id  Código de identificação do usuário.
         */
-        public static function editar($id)
+        public static function buscar($id)
         {
             
             $usuario = new Usuario;
