@@ -20,16 +20,6 @@
         abstract public function find($id);
         
         /**
-        * Busca dados cadastrados na base de dados com base no nome do livro.
-        */ 
-        abstract public function findName($nomeLivro);
-
-        /**
-        * Busca dados cadastrados na base de dados com base no nome do autor.
-        */ 
-        abstract public function findActor($nomeAutor);
-        
-        /**
         * Quantifica todos os dados cadastrados na base de dados.
         */ 
         abstract public function count();
