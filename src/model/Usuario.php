@@ -121,6 +121,44 @@
         }
 
         /**
+        * Busca usuários cadastrados na base de dados com base no nome do livro.
+        */ 
+        public function findName($nomeLivro)
+        {
+            $result = false;
+
+            $conexao = new Conexao();
+            $conn = $conexao->getConection();
+            $query = "SELECT * FROM usuario WHERE nome = :nomeLivro";
+            $stmt = $conn->prepare($query);
+            if($stmt->execute(array(':id'=>$nomeLivro)))
+            {
+                if($stmt->rowCount() > 0)
+                    $result = $stmt->fetchObject(Usuario::class);
+            }
+            return $result;
+        }
+
+        /**
+        * Busca usuários cadastrados na base de dados com base no nome do autor.
+        */ 
+        public function findActor($nomeAutor)
+        {
+            $result = false;
+
+            $conexao = new Conexao();
+            $conn = $conexao->getConection();
+            $query = "SELECT * FROM usuario WHERE autor = :nomeAutor";
+            $stmt = $conn->prepare($query);
+            if($stmt->execute(array(':id'=>$nomeAutor)))
+            {
+                if($stmt->rowCount() > 0)
+                    $result = $stmt->fetchObject(Usuario::class);
+            }
+            return $result;    
+        }
+
+        /**
         * Quantifica os usuários cadastrados na base de dados.
         */ 
         public function count()
