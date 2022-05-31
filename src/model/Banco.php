@@ -5,27 +5,27 @@
     abstract class Banco
     {
         /**
-        * Salva os dados cadastrados na base de dados.
+        * Salva os usuários cadastrados na base de dados.
         */ 
         abstract public function save();
         
         /**
-        * Remove os dados cadastrados na base de dados com base no código de identificação.
+        * Remove os usuários cadastrados na base de dados com base no código de identificação.
         */ 
         abstract public function remove($id);
         
         /**
-        * Busca dados cadastrados na base de dados com base no códido de identificação.
+        * Busca usuários cadastrados na base de dados com base no códido de identificação.
         */ 
         abstract public function find($id);
         
         /**
-        * Quantifica todos os dados cadastrados na base de dados.
+        * Quantifica todos os usuários cadastrados na base de dados.
         */ 
         abstract public function count();
         
         /**
-        * Lista todos os dados cadastrados na base de dados.
+        * Lista todos os usuários cadastrados na base de dados.
         */ 
         abstract public function listAll();
     }   
