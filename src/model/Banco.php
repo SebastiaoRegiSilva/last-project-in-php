@@ -22,7 +22,7 @@
         /**
         * Quantifica todos os usuários cadastrados na base de dados.
         */ 
-        abstract public function count();
+        //abstract public function count();
         
         /**
         * Lista todos os usuários cadastrados na base de dados.
