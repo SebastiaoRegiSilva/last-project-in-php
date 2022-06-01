@@ -1,49 +1,81 @@
-<?php
-    //require_once '../head.php';
+<?php 
+    require_once("Cabecalho.php"); 
+	require_once("Conexao.php");
+	require_once("banco-livraria.php");
+	require_once("logica-usuario.php");
+	require_once("logica-empresta.php");
+
+	if(empty($_SESSION['emprestimo']))
+    { 
 ?>
-<div class="container">
-    <form name="cadUsuario" id="cadUsuario" action="" method="post">
-        <div class="card" style="top:40px">
-            <div class="card-header">
-                <span class="card-title">Cadastro de Usuários</span>
-            </div>
-            <div class="card-body">
-            </div>
-            <div class="form-group form-row">
-                <label class="col-sm-2 col-form-label text-right">Login:</label>
-                <input type="text" class="form-control col-sm-8" name="login" id="login" value="" />
-            </div>
-            <div class="form-group form-row">
-                <label class="col-sm-2 col-form-label text-right">Senha:</label>
-                <input type="password" class="form-control col-sm-8" name="senha1" id="senha1" value="" />
-            </div>
-            <div class="form-group form-row">
-                <label class="col-sm-2 col-form-label text-right">Confirmação:</label>
-                <input type="password" class="form-control col-sm-8" name="senha2" id="senha2" value="" />
-            </div>
-            <div class="form-group form-row">
-                <label class="col-sm-2 col-form-label text-right">Permissão:</label>
-                <select name="permissao" id="permissao" class="form-control col-sm-8">
-                    <option value="0"></option>
-                    <option value="A">Administrador</option>
-                    <option value="C">Comum</option>
-                </select>
-            </div>
-            <div class="card-footer">
-                <input type="hidden" name="id" id="id" value="" />
-                <input type="submit" class="btn btn-success" name="btnSalvar" id="btnSalvar">
-            </div>
-        </div>
-    </form>
-</div>
-
-<?php
-    if(isset($_POST['btnCadastrar']))
-    {
-
-        require_once '../controller/UsuarioController.php';
-        call_user_func(array('UsuarioController','salvar'));
+		<div class="alert alert-success" role="alert">Lista de empréstimo vazia.</div>
+<?php 
     }
-    
-    // require_once '../foot.php';
+    else
+    { 
+?>
+    <?php if(usuarioEstaLogado()){ ?>
+	<h2>Busque o usuário pelo ID</h2>
+	<form action="busca-usuario.php" method="post" class="form-horizontal">
+		<div class="form-group">
+			<label for="inputName" class="col-sm-2 control-label">Digite o ID do Usuário.</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="inputName" name="id" placeholder="Digite o ID do usuário">
+			</div>
+		</div>
+		<br/>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default">Buscar Usuário</button>
+			</div>
+		</div> 
+	</form>
+
+	<?php 
+		if(isset($_SESSION['id_usuario'])){
+			$usuario = buscaUsuario($conexao, $_SESSION['id_usuario']); ?>
+			<p class="lead">Cliente <?=$usuario['nome']?></p>
+	<?php	
+        } 
+    ?>
+
+	<table class="table table-bordered table-striped">
+		<tr>
+			<td>Nome:</td>
+			<td>Sinopse</td>
+		</tr>
+		<tr>
+			<?php 
+
+
+			foreach($_SESSION['emprestimo'] as $livro) 
+            { 
+				$resultado = buscaLivro($conexao, $livro)
+
+				?>
+				<td><?=$resultado['nome']?></td>
+				<td><?=$resultado['sinopse']?></td>
+				
+					
+					<td><a href="excluir-emprestimo.php?id=<?=$resultado['id']?>" class="btn btn-danger">Excluir</a></td>
+				</tr>
+        <?php 
+            } 
+        ?>
+	</table>
+
+    <?php 
+        }
+        else
+        { 
+    ?>
+        <div class="alert alert-danger" role="alert">Para usar esta funcionalidade você precisa estar logado.</div>
+    <?php 
+        } 
+    ?>
+    <a href="emprestimo.php" class="btn btn-default">Emprestar</a>
+    <a href="cancela-emprestimo.php" class="btn btn-danger">Cancelar empréstimo</a>
+<?php 
+}
+    require_once("rodape.php"); 
 ?>
