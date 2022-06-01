@@ -8,39 +8,39 @@
     class Livro extends Banco
     {
         /**
-            * Código de identificação do livro.
+        * Código de identificação do livro.
         */
         private $id;
         
         /**
-            * Nome do livro.
+        * Nome do livro.
         */
         private $nomeLivro;
         
         /**
-            * Nome do autor do livroi.
+        * Nome do autor do livroi.
         */
         private $nomeAutor;
         
         /**
-            * Foto da capa do livro.
+        * Foto da capa do livro.
         */
         private $fotoCapa;
         
         /**
-            * International Standard Book Number/ Padrão Internacional de Numeração de Livro).
+        * International Standard Book Number/ Padrão Internacional de Numeração de Livro).
         */
         private $ISBN;
         
         /**
-            * Nome da editora responsável pela edição, publicação e venda do livro.
+        * Nome da editora responsável pela edição, publicação e venda do livro.
         */
         private $editora;
         
         // Getters para obter informações. Esse tipo de método sempre retorna um valor.
         
         /**
-            * Get código de identificação do livro.
+        * Get código de identificação do livro.
         */ 
         public function getId()
         {
@@ -48,7 +48,7 @@
         }
 
         /**
-            * Get nome do livro.
+        * Get nome do livro.
         */ 
         public function getNomeLivro()
         {
@@ -56,7 +56,7 @@
         }
 
         /**
-            * Get nome do autor do livroi.
+        * Get nome do autor do livroi.
         */ 
         public function getNomeAutor()
         {
@@ -64,7 +64,7 @@
         }
         
         /**
-            * Get foto da capa do livro.
+        * Get foto da capa do livro.
         */ 
         public function getFotoCapa()
         {
@@ -72,7 +72,7 @@
         }
 
         /**
-            * Get international Standard Book Number/ Padrão Internacional de Numeração de Livro).
+        * Get international Standard Book Number/ Padrão Internacional de Numeração de Livro).
         */ 
         public function getISBN()
         {
@@ -80,7 +80,7 @@
         }
 
         /**
-            * Get nome da editora responsável pela edição, publicação e venda do livro.
+        * Get nome da editora responsável pela edição, publicação e venda do livro.
         */ 
         public function getEditora()
         {
@@ -90,62 +90,50 @@
         // Setters para definir valores. Esse tipo de método não retorna valores.
         
         /**
-            * Set código de identificação do livro.
+        * Set código de identificação do livro.
         */ 
         public function setId($id)
         {
             $this->id = $id;
-
-            return $this;
         }
         
         /**
-            * Set nome do livro.
+        * Set nome do livro.
         */ 
         public function setNomeLivro($nomeLivro)
         {
-                $this->nomeLivro = $nomeLivro;
-
-                return $this;
+            $this->nomeLivro = $nomeLivro;
         }
         
         /**
-            * Set nome do autor do livroi.
+        * Set nome do autor do livroi.
         */ 
         public function setNomeAutor($nomeAutor)
         {
             $this->nomeAutor = $nomeAutor;
-
-            return $this;
         }
         /**
-            * Set foto da capa do livro.
+        * Set foto da capa do livro.
         */ 
         public function setFotoCapa($fotoCapa)
         {
             $this->fotoCapa = $fotoCapa;
-
-            return $this;
         }
         
         /**
-            * Set international Standard Book Number/ Padrão Internacional de Numeração de Livro).
+        * Set international Standard Book Number/ Padrão Internacional de Numeração de Livro).
         */ 
         public function setISBN($ISBN)
         {
             $this->ISBN = $ISBN;
-
-            return $this;
         }
         
         /**
-            * Set nome da editora responsável pela edição, publicação e venda do livro.
+        * Set nome da editora responsável pela edição, publicação e venda do livro.
         */ 
         public function setEditora($editora)
         {
             $this->editora = $editora;
-
-            return $this;
         }
         
         /**
@@ -180,8 +168,8 @@
         }
 
         /**
-        * Remove um livro na base de dados baseado no Id.
-        * @id  Código de identificação do livro.
+        * Remove um livro na base de dados baseado no código de identificação.
+        * @param mixed $id Código de identificação do livro.
         */ 
         public function remove($id)
         {
@@ -209,7 +197,7 @@
 
         /**
         * Remove um livro na base de dados baseado no nome do livro.
-        * @nomeLivro  Nome do livro.
+        * @param mixed $nomeLivro Nome do livro.
         */ 
         // public function removeLivroNome($nomeLivro)
         // {
@@ -230,14 +218,14 @@
         //             $result = $stmt->fetchObject(Livro::class);
         //         else
         //             $result = false;
-                
+        //       
         //     }
         //     return $result;
         // }
 
         /**
         * Busca um livro na base de dados baseado no Id.
-        * @id  Código de identificação do livro.
+        * @param mixed $id Código de identificação do livro.
         */ 
         public function find($id)
         {
@@ -295,6 +283,7 @@
         
         /**
         * Busca livro cadastrado na base de dados com base no nome.
+        * @param mixed $nomeLivro Nome do livro.
         */ 
         public function findName($nomeLivro)
         {
@@ -314,6 +303,7 @@
 
         /**
         * Busca livros cadastrados na base de dados com base no nome do autor.
+        * @param mixed $nomeAutor Autor do livro.
         */ 
         public function findActor($nomeAutor)
         {
