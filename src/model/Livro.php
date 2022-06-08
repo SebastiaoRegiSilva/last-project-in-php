@@ -91,6 +91,7 @@
         
         /**
         * Set código de identificação do livro.
+        * @param mixed $id Código de identificação do livro.
         */ 
         public function setId($id)
         {
@@ -99,6 +100,7 @@
         
         /**
         * Set nome do livro.
+        * @param mixed $nomeLivro Nome do livro.
         */ 
         public function setNomeLivro($nomeLivro)
         {
@@ -107,6 +109,7 @@
         
         /**
         * Set nome do autor do livroi.
+        * @param mixed $nomeLivro Nome do autor.
         */ 
         public function setNomeAutor($nomeAutor)
         {
@@ -114,6 +117,7 @@
         }
         /**
         * Set foto da capa do livro.
+        * @param mixed $fotoCapa Foto-amostra da capa do livro.
         */ 
         public function setFotoCapa($fotoCapa)
         {
@@ -121,7 +125,8 @@
         }
         
         /**
-        * Set international Standard Book Number/ Padrão Internacional de Numeração de Livro).
+        * Set international Standard Book Number/ (Padrão Internacional de Numeração de Livro.).
+        * @param mixed $ISBN Padrão Internacional de Numeração de Livro.
         */ 
         public function setISBN($ISBN)
         {
@@ -130,6 +135,7 @@
         
         /**
         * Set nome da editora responsável pela edição, publicação e venda do livro.
+        * @param mixed $editora Nome da editora.
         */ 
         public function setEditora($editora)
         {
@@ -270,7 +276,7 @@
             $result = array();
             // Executa a query.
             if ($stmt->execute()) {
-                // O resultado da busca será retornado como um objeto da classe
+                // O resultado da busca será retornado como um objeto da classe.
                 while ($rs = $stmt->fetchObject(Livro::class))
                     // Armazena esse objeto em uma posição do vetor.
                     $result[] = $rs;
