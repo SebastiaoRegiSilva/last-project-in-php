@@ -1,5 +1,6 @@
 <?php
 	session_start();
+
 	/**
     * Classe responsável pela persistência de dados dentro da aplicação.
     */ 
@@ -31,7 +32,7 @@
 
 	/**
     * Função responsável por logar um usuário com base em seu email cadastrado.
-    * @param mixed $email Email cadastrado na base de dad0s para login.
+    * @param mixed $email Email cadastrado na base de dadps para login.
 	*/ 
 	function logaUsuario($email) 
 	{

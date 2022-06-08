@@ -5,9 +5,9 @@
     class Conexao
     {
         private $servername = 'localhost:3306';
-        private $username = 'sebastiao';
-        private $password = 'machoAlfa2022';
-        private $database = 'livraria';
+        private $username = 'root';
+        private $password = 'HORTETEC_115';
+        private $database = 'biblioteca';
         private $conection;
 
         /**

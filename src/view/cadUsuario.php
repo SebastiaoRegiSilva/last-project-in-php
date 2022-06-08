@@ -33,7 +33,7 @@
 
 	<?php 
 		if(isset($_SESSION['id_usuario'])){
-			$usuario = call_user_func(array('UsuarioController', 'find')); ?>
+			$usuario = buscaUsuario($conexao, $_SESSION['id_usuario']); ?>
 			<p class="lead">Cliente <?=$usuario['nome']?></p>
 	<?php	
         } 
