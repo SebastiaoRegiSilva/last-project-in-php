@@ -5,7 +5,7 @@ create table livro(
     id int primary key auto_increment primary key,
     nomeLivro varchar(100) not null,
     nomeAutor varchar(100) not null,
-    fotoCapa varchar(30),
+    fotoCapa longblob,
     ISBM varchar(17),
     editora varchar(30) not null
 );
