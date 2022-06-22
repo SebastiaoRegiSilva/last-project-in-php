@@ -38,50 +38,31 @@
         private $editora;
         
         // Getters para obter informações. Esse tipo de método sempre retorna um valor.
-        
-        /**
-        * Get código de identificação do livro.
-        */ 
         public function getId()
         {
             return $this->id;
         }
 
-        /**
-        * Get nome do livro.
-        */ 
         public function getNomeLivro()
         {
             return $this->nomeLivro;
         }
 
-        /**
-        * Get nome do autor do livroi.
-        */ 
         public function getNomeAutor()
         {
             return $this->nomeAutor;
         }
         
-        /**
-        * Get foto da capa do livro.
-        */ 
         public function getFotoCapa()
         {
             return $this->fotoCapa;
         }
 
-        /**
-        * Get international Standard Book Number/ Padrão Internacional de Numeração de Livro).
-        */ 
         public function getISBN()
         {
             return $this->ISBN;
         }
 
-        /**
-        * Get nome da editora responsável pela edição, publicação e venda do livro.
-        */ 
         public function getEditora()
         {
             return $this->editora;
@@ -89,48 +70,31 @@
 
         // Setters para definir valores. Esse tipo de método não retorna valores.
         
-        /**
-        * Set código de identificação do livro.
-        */ 
         public function setId($id)
         {
             $this->id = $id;
         }
         
-        /**
-        * Set nome do livro.
-        */ 
         public function setNomeLivro($nomeLivro)
         {
             $this->nomeLivro = $nomeLivro;
         }
         
-        /**
-        * Set nome do autor do livroi.
-        */ 
         public function setNomeAutor($nomeAutor)
         {
             $this->nomeAutor = $nomeAutor;
         }
-        /**
-        * Set foto da capa do livro.
-        */ 
+        
         public function setFotoCapa($fotoCapa)
         {
             $this->fotoCapa = $fotoCapa;
         }
         
-        /**
-        * Set international Standard Book Number/ Padrão Internacional de Numeração de Livro).
-        */ 
         public function setISBN($ISBN)
         {
             $this->ISBN = $ISBN;
         }
         
-        /**
-        * Set nome da editora responsável pela edição, publicação e venda do livro.
-        */ 
         public function setEditora($editora)
         {
             $this->editora = $editora;
@@ -154,7 +118,6 @@
                     $stmt = $conn->prepare($query);
                     if($stmt->execute(array(':nomeLivro' => $this->nomeLivro, ':nomeAutor' => $this->nomeAutor, ':fotoCapa' => $this->fotoCapa, ':ISBN' => $this->ISBN, ':editora' => $this->editora, ':id' => $this->id)))
                         $result = $stmt->rowCount();
-                    
                 }
                 else
                 {
@@ -199,29 +162,28 @@
         * Remove um livro na base de dados baseado no nome do livro.
         * @param mixed $nomeLivro Nome do livro.
         */ 
-        // public function removeLivroNome($nomeLivro)
-        // {
-        //     // Objeto responsável pela conexão.
-        //     $conexao = new Conexao();
-        //     // Cria a conexão com o banco de dados.
-        //     $conn = $conexao->getConection();
-        //     // Cria query de busca com base no código de identificação.. 
-        //     $query = "SELECT * FROM livro WHERE nomeLivro = :nomeLivro";
-        //     // Prepara a query para execução.
-        //     $stmt = $conn->prepare($query);
-        //     // Executa a query.
-        //     if($stmt->execute(array(':nomeLivro'=>$nomeLivro)))
-        //     {
-        //         // Verifica se houve algum registro encontrado.
-        //         if($stmt->rowCount() > 0)
-        //             // O resultado da busca será retornado como um objeto da classe.
-        //             $result = $stmt->fetchObject(Livro::class);
-        //         else
-        //             $result = false;
-        //       
-        //     }
-        //     return $result;
-        // }
+        public function removeLivroNome($nomeLivro)
+        {
+            // Objeto responsável pela conexão.
+            $conexao = new Conexao();
+            // Cria a conexão com o banco de dados.
+            $conn = $conexao->getConection();
+            // Cria query de busca com base no código de identificação.. 
+            $query = "DELETE * FROM livro WHERE nomeLivro = :nomeLivro";
+            // Prepara a query para execução.
+            $stmt = $conn->prepare($query);
+            // Executa a query.
+            if($stmt->execute(array(':nomeLivro'=>$nomeLivro)))
+            {
+                // Verifica se houve algum registro encontrado.
+                if($stmt->rowCount() > 0)
+                    // O resultado da busca será retornado como um objeto da classe.
+                    $result = $stmt->fetchObject(Livro::class);
+                else
+                    $result = false;
+            }
+            return $result;
+        }
 
         /**
         * Busca um livro na base de dados baseado no Id.
@@ -244,14 +206,6 @@
             
             return $result;
         }
-
-        // /**
-        // * Quantifica os imóveis cadastrados na base de dados.
-        // */ 
-        // public function count()
-        // {
-        //     // Falta implementar.
-        // }
 
         /**
         * Lista todos os livros cadastrados na base de dados.
