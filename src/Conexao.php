@@ -7,7 +7,7 @@
         private $servername = 'localhost:3306';
         private $username = 'sebastiao';
         private $password = 'machoAlfa2022';
-        private $database = 'livraria';
+        private $database = 'biblioteca';
         private $conection;
 
         /**
