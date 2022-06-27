@@ -1,5 +1,6 @@
 <?php
-    require_once 'model/Usuario.php';
+    require_once 'C:\xampp\htdocs\last-project-in-php\src\model\Usuario.php';
+    
     /**
     * Controller que provê endpoints relacionados a entidade usuário.
     */ 
@@ -22,7 +23,7 @@
         /**
         * Lista todos os usuários cadastrados no repositório.
         */ 
-        public static function listar()
+        public static function listarTodos()
         {
             $usuario = new Usuario();
             return $usuario->listAll();
@@ -38,6 +39,19 @@
             $usuario = new Usuario;
             $usuario = $usuario->find($id);
 
+            return $usuario;
+        }
+
+        /**
+        * Busca um usuário cadastrado com base em seu login.
+        * @param mixed $id  Login do usuário.
+        */
+        public static function buscarPorLogin($login,)
+        {
+            
+            $usuario = new Usuario;
+            $usuario = $usuario->findUserLogin($login);
+            
             return $usuario;
         }
 
