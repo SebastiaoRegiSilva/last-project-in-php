@@ -2,7 +2,7 @@
 	session_start();
 
 	/**
-    * Classe responsável pela persistência de dados dentro da aplicação.
+    * Função que verifica se o usuário está logado.
     */ 
 	function usuarioEstaLogado() 
 	{

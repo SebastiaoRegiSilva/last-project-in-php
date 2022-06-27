@@ -1,6 +1,6 @@
 <?php
-    require_once 'Banco.php';
-    require_once 'Conexao.php';
+    require_once 'C:\xampp\htdocs\last-project-in-php\src\model\Banco.php';
+    require_once 'C:\xampp\htdocs\last-project-in-php\src\Conexao.php';
 
     /**
     * Objeto de valor que representa um usuário.
@@ -144,7 +144,7 @@
 
 
         /**
-        * Lista todos os usuários comuns cadastrados na base de dados.
+        * Lista todos os usuários cadastrados na base de dados.
         */ 
         public function listAll()
         {
@@ -155,7 +155,7 @@
             // Cria a conexao com o banco de dados.
             $conn = $conexao->getConection();
             // Cria query de seleção.
-            $query = "SELECT * FROM usuario WHERE permissao = :C ";
+            $query = "SELECT * FROM usuario";
             // Prepara a query para execução.
             $stmt = $conn->prepare($query);
             // Cria um array para receber o resultado da seleção.
