@@ -1,6 +1,6 @@
 <?php
     require_once 'Banco.php';
-    require_once './Conexao.php';
+    require_once 'Conexao.php';
 
     /**
     * Objeto de valor que representa um usuário.
@@ -123,15 +123,28 @@
         }
 
         /**
-        * Quantifica os usuários cadastrados na base de dados.
+        * Busca usuário cadastrado na base de dados com base em seu login.
+        * @param mixed $id Login do usuário.
         */ 
-        public function count()
+        public function findUserLogin($login)
         {
-            // Falta implementar.
+            $result = false;
+
+            $conexao = new Conexao();
+            $conn = $conexao->getConection();
+            $query = "SELECT * FROM usuario WHERE login = :login";
+            $stmt = $conn->prepare($query);
+            if($stmt->execute(array(':login'=>$login)))
+            {
+                if($stmt->rowCount() > 0)
+                    $result = $stmt->fetchObject(Usuario::class);
+            }
+            return $result;
         }
 
+
         /**
-        * Lista todos os usuários cadastrados na base de dados.
+        * Lista todos os usuários comuns cadastrados na base de dados.
         */ 
         public function listAll()
         {
@@ -142,7 +155,7 @@
             // Cria a conexao com o banco de dados.
             $conn = $conexao->getConection();
             // Cria query de seleção.
-            $query = "SELECT * FROM usuario";
+            $query = "SELECT * FROM usuario WHERE permissao = :C ";
             // Prepara a query para execução.
             $stmt = $conn->prepare($query);
             // Cria um array para receber o resultado da seleção.
