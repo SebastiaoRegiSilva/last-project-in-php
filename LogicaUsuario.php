@@ -17,7 +17,7 @@
 		if(!usuarioEstaLogado()) 
 		{
 			$_SESSION['danger'] = "Você não tem acesso à essa funcionalidade!";
-			header("Location: index.php");
+			header("Location: Index.php");
 			die();
 		}
 	}
@@ -31,12 +31,12 @@
 	}
 
 	/**
-    * Função responsável por logar um usuário com base em seu email cadastrado.
-    * @param mixed $email Email cadastrado na base de dadps para login.
+    * Função responsável por logar um usuário com base em seu login cadastrado.
+    * @param mixed $login Login cadastrado na base de dados para login.
 	*/ 
-	function logaUsuario($email) 
+	function logaUsuario($login) 
 	{
-		$_SESSION['usuario_logado'] = $email;
+		$_SESSION['usuario_logado'] = $login;
 	}
 
 	/**

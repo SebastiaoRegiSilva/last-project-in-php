@@ -1,5 +1,5 @@
 <?php
-    require_once 'C:\xampp\htdocs\last-project-in-php\src\model\Usuario.php';
+    require_once('C:\xampp\htdocs\last-project-in-php\model\Usuario.php');
     
     /**
     * Controller que provê endpoints relacionados a entidade usuário.

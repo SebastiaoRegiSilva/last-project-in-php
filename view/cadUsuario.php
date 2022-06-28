@@ -1,24 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="css/bootstrap.css" rel="stylesheet">
-	<link href="css/loja.css" rel="stylesheet">
-	<title>Cadastro de Usuário.</title>
-</head>
-
-<body>
 	<?php
-		require_once('C:\xampp\htdocs\last-project-in-php\src\Cabecalho.php');
+		require_once 'C:\xampp\htdocs\last-project-in-php\Cabecalho.php';
 		
-		if (!isset($_SESSION['userLogin']) == true) {
+		if (!isset($_SESSION['userLogin'])) {
 			unset($_SESSION['Login.php']);
 			header('Location: Login.php');
 		}
-	
+		
 		$logado = $_SESSION['userLogin'];
 		
 		if ($logado->getPermissao() == 'A') 
@@ -107,7 +95,7 @@
 				<h3 class="mb-0">HAHA, VOCÊ NÃO PODE FICA AQUI VOLTE!</h3>
 			<?php
 				// Redireciona para a index.
-				header('Location: C:\xampp\htdocs\last-project-in-php\src\Index.php');
+				header('Location: Index.php');
 			} 
 	?>
 </body>

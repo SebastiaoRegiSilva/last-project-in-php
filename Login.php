@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta charset="UTF-8">
 	<link href="css/bootstrap.css" rel="stylesheet">
@@ -15,7 +14,7 @@
 			<h1>Sejam bem-vindos à Biblioteca Carlos Corrêa Loyola.</h1>
 
 			<h4>Confira todos os nossos exemplares cadastrados e venha para o clube da leitura!.</h4>
-			<form role="form" action="VerificarUsuario.php" method="post" class="form-horizontal">
+			<form role="form" action="LogicaUsuario.php" method="post" class="form-horizontal">
 				<?php
 				include 'Conexao.php';
 				if (isset($_GET['msg'])) 

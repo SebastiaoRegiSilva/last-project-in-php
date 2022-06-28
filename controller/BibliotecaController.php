@@ -1,5 +1,5 @@
 <?php
-    require_once 'C:\xampp\htdocs\last-project-in-php\src\model\Biblioteca.php';
+    require_once '../model/Biblioteca.php';
 
     /**
     * Controller que provê endpoints relacionados a entidade livro.

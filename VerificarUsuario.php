@@ -8,7 +8,7 @@
 
     $usuarioRecuperado = call_user_func(array('UsuarioController', 'buscarPorLogin'), $login);
     
-    if($usuarioRecuperado == false)
+    if(!$usuarioRecuperado)
         header('Location: Login.php?msg=2');
     else
     {

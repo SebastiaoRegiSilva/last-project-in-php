@@ -21,7 +21,7 @@
                 </thead>
                 <tbody>
                     <?php
-                        require_once('C:\xampp\htdocs\last-project-in-php\src\controller\UsuarioController.php');
+                        require_once('../controller/UsuarioController.php');
                         $usuarios = call_user_func(array('UsuarioController', 'listarTodos'));
                         var_dump($usuarios);
                         if(isset($usuarios) && !empty($usuarios)){

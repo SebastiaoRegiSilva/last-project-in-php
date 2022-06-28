@@ -2,7 +2,7 @@
 create database biblioteca;
 -- Usar o banco de dados.
 use biblioteca;
--- Criar a tabela com os suas propriedades.
+-- Criar a tabela com as suas propriedades.
 create table livro(
     id int primary key auto_increment primary key,
     nomeLivro varchar(100) not null,
@@ -11,7 +11,8 @@ create table livro(
     ISBM varchar(17),
     editora varchar(30) not null
 );
--- Criar a tabela com os suas propriedades.
+-- Criar uma tabela dos usuários com as suas propriedades.
+-- Nível de permissão vai diferenciar os usuários comuns dos administradores. 
 create table usuario(
     id int auto_increment primary key,
     login varchar(10) not null,
@@ -21,16 +22,18 @@ create table usuario(
 
 -- #IMPORTANTE
 -- Um super usuário vai ser cadastrado via query sql para viabilizar a navegação inicial no projeto.
+INSERT INTO `biblioteca`.`usuario` (`id`, `login`, `senha`, `permissao`) VALUES ('1', 'ja@log', '123456', 'A');
 
 -- Criar a tabela com os suas propriedades.
 create table emprestimo(
     id int auto_increment primary key,
-    idUsuario  int,
-    idLivro int,
+    idUsuario  int null,
+    idLivro int not null,
+    permitido bool not null,
     dataInicial TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP, -- Insere da data do ato do empréstimo. Verificar na base como esse tipo de dado se comporta.
 	dataFinal date,
     foreign key(idUsuario) references usuario(id),
     foreign key(idLivro) references livro(id)
 );
--- Descrição das colunas de uma tabela.
-show COLUMNS from <nomeDaTabela>;
+
+select * from usuario;

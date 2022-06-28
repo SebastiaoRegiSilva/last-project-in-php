@@ -1,6 +1,7 @@
 <?php
-    require_once 'C:\xampp\htdocs\last-project-in-php\src\model\Banco.php';
-    require_once 'C:\xampp\htdocs\last-project-in-php\src\Conexao.php';
+
+    require_once('Banco.php');
+    require_once('C:\xampp\htdocs\last-project-in-php\Conexao.php');
 
     /**
     * Objeto de valor que representa um usuário.
