@@ -22,7 +22,10 @@ create table usuario(
 
 -- #IMPORTANTE
 -- Um super usuário vai ser cadastrado via query sql para viabilizar a navegação inicial no projeto.
-INSERT INTO `biblioteca`.`usuario` (`id`, `login`, `senha`, `permissao`) VALUES ('1', 'ja@log', '123456', 'A');
+INSERT INTO `biblioteca`.`usuario` (`login`, `senha`, `permissao`) VALUES ('admim', '123456', 'A');
+INSERT INTO `biblioteca`.`usuario` (`login`, `senha`, `permissao`) VALUES ('jonas', '123456', 'C');
+INSERT INTO `biblioteca`.`usuario` (`login`, `senha`, `permissao`) VALUES ('andre', '123456', 'A');
+INSERT INTO `biblioteca`.`usuario` (`login`, `senha`, `permissao`) VALUES ('excluir', '123456', 'C');
 
 -- Criar a tabela com os suas propriedades.
 create table emprestimo(
@@ -35,5 +38,17 @@ create table emprestimo(
     foreign key(idUsuario) references usuario(id),
     foreign key(idLivro) references livro(id)
 );
+-- Inserir um livro modelo na base.
+INSERT INTO `biblioteca`.`livro`
+(`nomeLivro`,
+`nomeAutor`,
+`ISBM`,
+`editora`)
+VALUES
+("Do Mil ao Milhão. Sem Cortar o Cafezinho. ",
+"Thiago Nigro",
+"666",
+"HarperCollins");
 
+select * from livro;
 select * from usuario;
