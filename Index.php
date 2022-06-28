@@ -1,30 +1,34 @@
 <?php
-    require_once('Conexao.php');
-    require_once('Cabecalho.php');
-    
-    if(!isset($_SESSION['userLogin']))
-    {
-      unset($_SESSION['userLogin']);
-      header('Location: Login.php');
-    }else {
-      header('Location: Cabecalho.php');
-      $logado = $_SESSION['userLogin'];
-    }
+    include('conecta.php');
+    require_once("cabecalho.php");
+        
+    $sql = "SELECT * FROM usuario WHERE login = '$logado' ";
+    $buscar = mysqli_query($connection,$sql);
+    $dados = mysqli_fetch_array($buscar);
+
+    $id = $dados['id'];
+    $usuario = $dados['login'];
+    $senha = $dados['senha'];
+    $niveluser = $dados['permissao'];
 ?>
 
-
-      <?php
-        if ($logado->getPermissao() == 'A'){ ?>
-            <h1>Bem vindo à biblioteca, você está conectado como administrador.</h1>
-  <?php } 
-        elseif ($logado->getPermissao() == 'C'){ ?>
-          <h1>Bem vindo à biblioteca, você está conectado como usuário.</h1>
-          <h3>Confira nossos exemplares cadastrados e solicite um empréstimo no nosso sistema!</h3>
-  <?php } 
-        else 
-        {?>
-          <h1>Bem vindo à biblioteca, você não está conectado!</h1>
-          <h3>Confira nossos exemplares cadastrados, cadastre-se e solicite um empréstimo no nosso sistema!</h3>
-  <?php } ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Carlos Corrêa Loyola.</title>
+</head>
+<body>
+          <?php
+            if ($niveluser == 'A') { ?>
+          <h1>Bem Vindo à Biblioteca você está conectado como administrador.</h1>
+          <?php } ?>
+          <?php
+            if ($niveluser == 'C') { ?>
+          <h1>Bem Vindo à Biblioteca você está conectado como usuário comum.</h1>
+          <?php } ?>
 </body>
 </html>
+
