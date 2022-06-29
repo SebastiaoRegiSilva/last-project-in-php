@@ -20,6 +20,9 @@
 	$senha = $dados['senha'];
 	$niveluser = $dados['permissao'];
 	
+	// Session para uso no adiciona emprestimo.
+	$_SESSION['idUsuario'] = $id;
+	
 	?>
 	<!DOCTYPE html>
 	<html>
