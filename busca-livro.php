@@ -27,6 +27,8 @@
 			if ($niveluser == 'C') { ?>
 				<form action="adiciona-emprestimo.php" method="post">
 					<input type="hidden" value="<?=$l['id']?>" name="id">
+					<!-- // Session para usar no adiciona empréstimo. -->
+					<?php $_SESSION['idLivro'] = $l['id'] ?>
 					<button type="submit" class="btn btn-default">Solicitar</button>
 				</form>
 		<?php } ?>
