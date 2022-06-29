@@ -11,6 +11,17 @@
 		return mysqli_query($connection, $query);
 	}
 
+	function insereEmprestimo($connection, $idLivro, $idUsuario)
+	{
+		$teste2 = (intval($idUsuario));
+		$teste1 = (intval($idLivro));
+		// Quando autorizada eu só dou um update da tabela para TRUE.
+		$permitido = false;
+		$query = "INSERT into biblioteca.emprestimo (idUsuario,idLivro,permitido) VALUES ($teste2, $teste1, false)";
+		var_dump($query);
+		return mysqli_query($connection, $query);
+		var_dump("CHEGOU!");
+	}
 	function listaLivro($connection){
 		$livros = [];
 		$query = "SELECT * FROM livro";
