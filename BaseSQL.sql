@@ -27,12 +27,6 @@ INSERT INTO `biblioteca`.`usuario` (`login`, `senha`, `permissao`) VALUES ('jona
 INSERT INTO `biblioteca`.`usuario` (`login`, `senha`, `permissao`) VALUES ('andre', '123456', 'A');
 INSERT INTO `biblioteca`.`usuario` (`login`, `senha`, `permissao`) VALUES ('excluir', '123456', 'C');
 
--- Inserir um livro modelo na base.
-INSERT INTO `biblioteca`.`livro`(`nomeLivro`,`nomeAutor`,`ISBM`,`editora`)VALUES("Do Mil ao Milhão. Sem Cortar o Cafezinho. ", "Thiago Nigro","666","HarperCollins");
-INSERT INTO `biblioteca`.`livro`(`nomeLivro`,`nomeAutor`,`ISBM`,`editora`)VALUES("Teste de Cadastro", "Paulo Vilhena","6164584","Mundo Vivo");
-INSERT INTO `biblioteca`.`livro`(`nomeLivro`,`nomeAutor`,`ISBM`,`editora`)VALUES("Rei dos piratas", "Eduardo Vasconcellos","94614","Quebra onda");
-
-
 -- Criar a tabela com os suas propriedades.
 create table emprestimo(
     id int auto_increment primary key,
@@ -40,9 +34,13 @@ create table emprestimo(
     idLivro int not null,
     permitido bool not null,
     dataInicial TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP, -- Insere da data do ato do empréstimo. Verificar na base como esse tipo de dado se comporta.
-	dataFinal date,
+	dataFinal timestamp,
     foreign key(idUsuario) references usuario(id),
     foreign key(idLivro) references livro(id)
 );
+-- Inserir um livro modelo na base.
+INSERT INTO `biblioteca`.`livro`(`nomeLivro`,`nomeAutor`,`ISBM`,`editora`)VALUES("Do Mil ao Milhão. Sem Cortar o Cafezinho. ", "Thiago Nigro","666","HarperCollins");
+INSERT INTO `biblioteca`.`livro`(`nomeLivro`,`nomeAutor`,`ISBM`,`editora`)VALUES("Teste de Cadastro", "Paulo Vilhena","6164584","Mundo Vivo");
+INSERT INTO `biblioteca`.`livro`(`nomeLivro`,`nomeAutor`,`ISBM`,`editora`)VALUES("Rei dos piratas", "Eduardo Vascocellos","94614","Quebra onda");
 
 select * from usuario;
