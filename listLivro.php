@@ -4,7 +4,7 @@
 	require_once("banco-livraria.php");
 ?>
 
-	<?php if ($niveluser == 'A') { ?>
+	<?php if ($niveluser == 'A' or $niveluser == 'C') { ?>
 <?php 
 	if(array_key_exists("removido", $_GET) && $_GET == true){ ?>
 		<div class="alert alert-success" role="alert">Livro Removido com sucesso.</div>
@@ -16,8 +16,10 @@
 			<td><b>Foto da Capa</b></td>
 			<td><b>Editora</b></td>
 			<td><b>ISBM</b></td>
+			<?php if ($niveluser == 'A') { ?>
 			<td><b>Alterar</b></td>
 			<td><b>Deletar</b></td>
+			<?php } ?>
 			<?php
             	if ($niveluser == 3) { ?>
 			<td>Alterar</td>

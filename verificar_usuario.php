@@ -1,5 +1,4 @@
 <?php
-    var_dump("Chegouu!");
     session_start();
     include_once('conecta.php');
     include ('script/password.php');

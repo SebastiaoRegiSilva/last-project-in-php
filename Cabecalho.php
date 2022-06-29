@@ -35,22 +35,23 @@
 
 			<ul class="nav nav-tabs">
 				<li role="presentation" class="active"><a href="index.php">Biblioteca Carlos Corrêa Loyola.</a></li>
+				<STYLE TYPE="text/css">
+					BODY {background-image: url(fotoBackground.jpg); background-repeat: no-repeat; }
+				</STYLE>
 				<?php
 				if ($niveluser == 'A') { ?>
 						<li role="presentation"><a href="cadLivro.php">Cadastrar livros.</a></li>
 						<li role="presentation"><a href="listLivro.php">Lista  de livros.</a></li>
 						<li role="presentation"><a href="cadUsuario.php">Cadastrar usuários.</a></li>
 						<li role="presentation"><a href="listUsuario.php">Lista de usuários.</a></li>
-						<!-- <li role="presentation"><a href="formEmprestimo.php">Validar empréstimos.</a></li>	 -->
-				<?php } ?>
+						<li role="presentation"><a href="busca-livro.php">Buscar livros.</a></li>
+						<?php } ?>
 				<?php
 				if ($niveluser == 'C') { ?>
 					<li role="presentation"><a href="listLivro.php">Lista de livros.</a></li>
-					<li role="presentation"><a href="busca-livro.php">Busca de livros - Validar.</a></li>
-					<!-- <li role="presentation"><a href="formEmprestimo.php">Solicitar empréstimo.</a></li> -->
+					<li role="presentation"><a href="busca-livro.php">Buscar livros.</a></li>
 				<?php } ?>
 				
-				<li role="presentation"><a href="sobreApp.php">Sobre</a></li>
 				<form action="logout.php" method="POST">
 					<div class="card-footer py-0">
 						<button type="submit" name="logout_btn" class="btn btn-danger">Deslogar</button>

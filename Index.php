@@ -1,6 +1,6 @@
 <?php
-    include('conecta.php');
-    require_once("cabecalho.php");
+    include('Conecta.php');
+    require_once("Cabecalho.php");
         
     $sql = "SELECT * FROM usuario WHERE login = '$logado' ";
     $buscar = mysqli_query($connection,$sql);

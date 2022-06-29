@@ -61,6 +61,17 @@
 		$inserir = mysqli_query($connection,$query);
 		$teste = mysqli_affected_rows($connection);
 	}
+	
+	function alterarUsuario($connection, $id, $login, $senha, $permissao)
+	{
+		$login = $_POST['login'];
+		$senha = $_POST['senha'];
+		$permissao = $_POST['permissao'];
+		
+		$query = "UPDATE usuario SET login = $login, senha = $senha,permissao = $permissao WHERE id = '$id'";
+		$inserir = mysqli_query($connection,$query);
+		$teste = mysqli_affected_rows($connection);
+	}
 
 	function buscaUsuario($connection, $id){
 		$query = "SELECT * FROM usuario where id = {$id}";
@@ -69,7 +80,6 @@
 	}
 
 	
-
 	function searchLivro($connection, $nome){
 		$livro = [];
 		$query = "SELECT * FROM livro where nomeLivro like '{$nome}%'";
@@ -79,24 +89,3 @@
 		}
 		return $livro;
 	}
-
-
-	function adicionaEmprestimo($connection, $id_usuario){
-		$query = "INSERT into emprestimo (usuario_id) VALUES ({$id_usuario})";
-		return mysqli_query($connection, $query);
-	}
-
-
-	function adicionaDetalheEmprestimo($connection, $livro_id, $emprestimo_id){
-		$query = "INSERT into detalheemprestimo (livro_id, emprestimo_id) VALUES ({$livro_id}, {$emprestimo_id}) ";
-		return mysqli_query($connection, $query);
-	}
-
-
-	function retornaIdEmprestimo($connection){
-		return mysqli_INSERT_id($connection); //função nova ela retorna o id do ultimo INSERT.
-	}
-
-
-
-

@@ -1,6 +1,6 @@
 <?php
-	require_once("cabecalho.php");
-	require_once("conecta.php");
+	require_once("Cabecalho.php");
+	require_once("Conecta.php");
 	require_once("banco-livraria.php");
 	include 'script/password.php';
 
@@ -25,6 +25,9 @@ if ($permissao == 'A') { ?>
 						<div class="container" style="margin-top: 10px">
 							<?php
 							include 'conecta.php';
+							var_dump($login);
+							var_dump($senha);
+							var_dump($permissao);
 							$atualizar = "UPDATE usuario SET login='$login',senha='$senha',permissao='$permissao' WHERE id='$id' ";
 							$inserir = mysqli_query($connection, $atualizar);
 							$testeAlteracao = mysqli_affected_rows($connection);

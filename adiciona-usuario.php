@@ -6,9 +6,8 @@
 	$nome = $_POST['nome'];
 	$senha = $_POST['senha'];
 	$nivel = $_POST['nivel'];
-	$telefone = $_POST['telefone'];
-
-	if(alterarUsuario($connection, $id, $nome, $senha, $nivel, $telefone)){ ?>
+	
+	if(alterarUsuario($connection, $id, $nome, $senha, $nivel)){ ?>
 		<div class="alert alert-success" role="alert">Usuário <?=$nome;?> cadastrado com sucesso.</div>
 
 	<?php }else { 
