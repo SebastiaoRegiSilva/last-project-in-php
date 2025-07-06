@@ -4,9 +4,9 @@
 	session_start();
 	if(!isset($_SESSION['login']) == true)
 	{
-		unset($_SESSION['login.php']);
+		unset($_SESSION['Login.php']);
 
-		header('Location: login.php');
+		header('Location: Login.php');
 	}
 
 	$logado = $_SESSION['login'];
@@ -37,7 +37,7 @@
 		<header>
 
 			<ul class="nav nav-tabs">
-				<li role="presentation" class="active"><a href="index.php">Biblioteca Carlos Corrêa Loyola.</a></li>
+				<li role="presentation" class="active"><a href="Index.php">Biblioteca Carlos Corrêa Loyola.</a></li>
 				<STYLE TYPE="text/css">
 					BODY {background-image: url(fotoBackground.jpg); background-repeat: no-repeat; }
 				</STYLE>
@@ -55,7 +55,7 @@
 					<li role="presentation"><a href="busca-livro.php">Buscar livros.</a></li>
 				<?php } ?>
 				
-				<form action="logout.php" method="POST">
+				<form action="Logout.php" method="POST">
 					<div class="card-footer py-0">
 						<button type="submit" name="logout_btn" class="btn btn-danger">Deslogar</button>
 					</div>

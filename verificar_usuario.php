@@ -17,16 +17,14 @@
 
         if($senhabd == $senhaverificada){
             $_SESSION['login'] = $login;
-            print_r("entro no if");
-            header("Location: index.php");
+            header("Location: Index.php");
         }   
         else {
-            print_r("entro no else");
-            header('Location: login.php?msg=1');
+             header('Location: Login.php?msg=1');
         }
 
     } else {
-        header('Location: login.php?msg=2');
+        header('Location: Login.php?msg=2');
     }
 ?>
 

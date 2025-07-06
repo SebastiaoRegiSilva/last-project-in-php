@@ -8,7 +8,7 @@ if(isset($_POST['logout_btn']))
 {
     session_destroy();
     unset($_SESSION['login']);
-    header('Location: login.php');
+    header('Location: Login.php');
 }
 
 ?>

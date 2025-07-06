@@ -1,5 +1,5 @@
 <?php 
-	require_once("cabecalho.php");
+	require_once("Cabecalho.php");
 	require_once("conecta.php");
 	require_once("banco-livraria.php");
 

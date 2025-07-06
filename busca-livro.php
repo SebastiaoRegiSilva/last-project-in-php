@@ -1,6 +1,6 @@
 <?php 
 	require_once("Cabecalho.php"); 
-	require_once("Conecta.php");
+	require_once("conecta.php");
 	require_once("banco-livraria.php");
 
 	$resultado = searchLivro($connection, $nome = "");
